@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xiaoqiang Ji - Personal Homepage</title>
+  <meta name="description" content="个人学术主页 / Personal Academic Homepage" />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --primary: #1d4ed8;
+      --primary-light: #eff6ff;
+      --highlight: #fff3b0;
+      --max-width: 980px;
+      --shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+        Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(229,231,235,0.8);
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 58px;
+      gap: 16px;
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--text);
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 14px;
+    }
+
+    .nav a {
+      color: var(--muted);
+    }
+
+    .nav a:hover {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 28px;
+      padding: 34px 0 20px;
+      align-items: start;
+    }
+
+    .avatar-wrap img {
+      width: 170px;
+      height: 215px;
+      object-fit: cover;
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+      background: #f9fafb;
+    }
+
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: 36px;
+      line-height: 1.15;
+      font-weight: 750;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .meta {
+      margin: 10px 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin: 12px 0 0;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 14px;
+      transition: 0.2s ease;
+    }
+
+    .pill:hover {
+      background: var(--primary-light);
+      border-color: #bfdbfe;
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    section {
+      padding: 8px 0 2px;
+    }
+
+    section h2 {
+      margin: 26px 0 12px;
+      padding-bottom: 8px;
+      font-size: 22px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    /* =========================
+       Our Lab media layout
+       ========================= */
+    .lab-media-grid {
+      display: grid;
+      gap: 16px;
+      margin: 16px 0 24px;
+      align-items: start;
+    }
+
+    /* 四个竖屏卡片一行 */
+    .lab-media-grid-portrait {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* 两个横屏卡片一行 */
+    .lab-media-grid-landscape {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .lab-media-card {
+      margin: 0;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .lab-media-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    }
+
+    .lab-media-card video,
+    .lab-media-card img {
+      display: block;
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: #f3f4f6;
+    }
+
+    .lab-media-title {
+      margin: 9px 4px 2px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--text);
+    }
+
+    /* 横屏视频 / 横屏动图：卡片内调小 */
+    .lab-media-landscape video,
+    .lab-media-landscape img {
+      height: 200px;
+      object-fit: cover;
+    }
+
+    /* 竖屏视频：卡片内调小 */
+    .lab-media-portrait video,
+    .lab-media-portrait img {
+      height: 300px;
+      object-fit: cover;
+    }
+
+
+    .industry-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+  margin: 18px 0 8px;
+  align-items: center;
+}
+
+.industry-logo-card {
+  height: 110px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.03);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.industry-logo-card img {
+  max-width: 100%;
+  max-height: 76px;
+  object-fit: contain;
+  display: block;
+}
+
+    /* -------------------------- */
+
+    .news-list,
+    .simple-list {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .news-list li,
+    .simple-list li {
+      margin: 7px 0;
+    }
+
+    .highlight {
+      background: var(--highlight);
+      padding: 1px 4px;
+      border-radius: 4px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      background: #fff;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.03);
+    }
+
+    .book-item {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 18px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .paper-item {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 18px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .book-item:last-child,
+    .paper-item:last-child {
+      border-bottom: none;
+    }
+
+    .thumb {
+      width: 120px;
+      height: 84px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: #f3f4f6;
+    }
+
+    .paper-item .thumb {
+      width: 180px;
+      height: 120px;
+      object-fit: fill;
+    }
+
+    .book-item .thumb {
+      width: 150px;
+      height: 210px;
+      object-fit: fill;
+    }
+
+    .item-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin: 0 0 4px;
+    }
+
+    .item-authors,
+    .item-venue,
+    .item-desc {
+      margin: 4px 0;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .item-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 12px;
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    .footer {
+      margin-top: 36px;
+      padding: 20px 0 40px;
+      color: var(--muted);
+      font-size: 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 3px 8px;
+      border-radius: 999px;
+      margin-right: 8px;
+      margin-bottom: 6px;
+    }
+
+    @media (max-width: 760px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .avatar-wrap {
+        text-align: center;
+      }
+
+      .avatar-wrap img {
+        width: 150px;
+        height: 190px;
+      }
+
+      .hero h1 {
+        font-size: 30px;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .lab-media-grid-portrait {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .lab-media-grid-landscape {
+        grid-template-columns: 1fr;
+      }
+
+      .lab-media-landscape video,
+      .lab-media-landscape img {
+        height: 190px;
+      }
+
+      .lab-media-portrait video,
+      .lab-media-portrait img {
+        height: 280px;
+      }
+
+      .lab-media-card {
+        padding: 8px;
+      }
+
+      .book-item,
+      .paper-item {
+        grid-template-columns: 1fr;
+      }
+
+      .thumb {
+        width: 100%;
+        height: 180px;
+      }
+
+      .paper-item .thumb {
+        width: 100%;
+        height: 200px;
+        object-fit: fill;
+      }
+
+      .book-item .thumb {
+        width: 100%;
+        height: 320px;
+        object-fit: fill;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">Xiaoqiang Ji</div>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#Industry Collaboration">Industry Collaboration</a>
+        <a href="#lab">Lab</a>
+        <!-- <a href="#services">Services</a> -->
+        <!-- <a href="#courses">Courses</a> -->
+        <a href="#books">Books</a>
+        <a href="#papers">Papers</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="avatar-wrap">
+        <img src="images/Avatar.jpg" alt="Portrait of your name" />
+      </div>
+
+      <div>
+        <h1>Xiaoqiang Ji</h1>
+        <p class="subtitle">
+          Assistant Professor <br />
+          Presidential Young Fellow
+        </p>
+
+        <div class="meta">
+          <div>🏫 CUHK(Shenzhen) /  SSE & SAI (Joint Appointment) / Control and Decision Lab</div>
+          <div>📍 Shenzhen, China</div>
+          <div>📧 jixiaoqiang@cuhk.edu.cn</div>
+        </div>
+
+        <div class="links">
+          <a class="pill" href="https://scholar.google.com/citations?hl=zh-CN&user=WhcQ6YcAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+          <!-- <a class="pill" href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a> -->
+          <!-- <a class="pill" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a> -->
+          <!-- <a class="pill" href="cv.pdf" target="_blank" rel="noopener noreferrer">CV</a> -->
+        </div>
+
+        <p style="margin-top:16px;">
+          Research area:
+          <span class="tag">Embodied Control</span>
+          <span class="tag">Control theory</span>
+          <span class="tag">Robot Control</span>
+        </p>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        Prof. JI Xiaoqiang received his PhD from Columbia University in the United States. He is currently an assistant professor and Ph.D. supervisor at the School of Science and Engineering, The Chinese University of Hong Kong, Shenzhen. He also serves as deputy director of the Guangdong Engineering Research Center for Embodied-AI Robotics, the expert committee member of Chine Simulation Federation Intelligent IOT Systems, and principal scientist of the ASEAN – China Artificial Intelligence Laboratory.
+      </p>
+      <!--
+      <p>
+        His research is mainly focused on intelligent control systems, and he has presided over a number of scientific research and talent projects, including the frontier exploration projects of data science and artificial intelligence of the National Natural Science Foundation of China, major projects in Shenzhen, and general projects in Guangdong Province. So far in IEEE Transactions on Automatic Control (TAC)、Automatica、Journal of Field Robotics (JFR)、IEEE/ASME T-Mech、T-ASE、RA-L、CDC、ICRA And other top international journals and conferences. Especially in non minimum phase systems, it is one of the promoters of learning control design in this field worldwide. He has served as the reviewer of several top journals and conferences including ieee-tac, the deputy editor of MECC, the young editorial board member of robot learning, the chairman of international conferences such as iros and RCAR, and recently won the cint excellent paper award and the isui best paper award.
+      </p>
+      <p>
+        The artificial intelligence control and decision laboratory led by Professor Ji is an interdisciplinary platform, which needs to deeply integrate basic sciences such as cybernetics, artificial intelligence, robotics, high-performance computing, big data, and is committed to carrying out basic theory and original research in the field of artificial intelligence and intelligent systems.
+      </p>
+      -->
+    </section>
+
+    <!-- <section id="Industry Collaboration">
+      <h2>Industry Collaboration</h2>
+      
+
+      <div class="industry-logo-grid">
+    <div class="industry-logo-card">
+      <img src="images/lego-leju(1).jpg" alt="Leju Robotics logo" />
+    </div>
+
+    <div class="industry-logo-card">
+      <img src="images/logo-engineai.png" alt="EngineAI Robotics logo" />
+    </div>
+
+    <div class="industry-logo-card">
+      <img src="images/logo-zwh.jpg" alt="Zhaowei logo" />
+    </div>
+
+    <div class="industry-logo-card">
+      <img src="images/logo-zwj.jpeg" alt="Zhongqing logo" />
+    </div>
+  </div>
+    </section> -->
+    <section id="Industry Collaboration">
+  <h2>Industry Collaboration</h2>
+
+  <div class="industry-logo-grid">
+    <div class="industry-logo-card">
+      <img src="images/lego-leju(1).jpg" alt="Leju Robotics logo" />
+    </div>
+
+    <div class="industry-logo-card">
+      <img src="images/logo-engineai.png" alt="EngineAI Robotics logo" />
+    </div>
+
+    <div class="industry-logo-card">
+      <img src="images/logo-zwh.jpg" alt="Zhaowei logo" />
+    </div>
+
+    <div class="industry-logo-card">
+      <img src="images/logo-zwj.jpg" alt="Zhongqing logo" />
+    </div>
+
+    <div class="industry-logo-card">
+      <img src="images/logo-dianwang.jpg" alt="Dianwang logo" />
+    </div>
+
+    <div class="industry-logo-card">
+      <img src="images/logo-hk.jpg" alt="HK logo" />
+    </div>
+
+    <div class="industry-logo-card">
+      <img src="images/logo-jindieshikong.jpg" alt="Jindie Shikong logo" />
+    </div>
+
+    <div class="industry-logo-card">
+      <img src="images/logo-linxAI.jpg" alt="Linx AI logo" />
+    </div>
+
+    <div class="industry-logo-card">
+      <img src="images/logo-galbot.png" alt="Galbot logo" />
+    </div>
+
+    <div class="industry-logo-card">
+      <img src="images/logo-guolianzhengquan.png" alt="Guolian Zhengquan logo" />
+    </div>
+  </div>
+</section>
+
+    <section id="lab">
+      <h2>Our Lab</h2>
+
+      <p>
+        Our lab currently hosts multiple robot platforms, including robots from
+        <b>Unitree</b>, <b>Leju</b>, and <b>Engineai Robotics</b>. These platforms
+        support experiments in locomotion, manipulation, human-robot interaction,
+        and autonomous decision-making.
+      </p>
+
+      <div class="lab-media-grid lab-media-grid-portrait">
+        <!-- 四个竖屏视频 / 图片卡片：一行展示 -->
+        
+
+
+        <figure class="lab-media-card lab-media-portrait">
+          <video  autoplay muted loop playsinline>
+            <!-- 上面标签里原先有controls，现在删掉了 -->
+            <source src="video/demo-amazinghand_3.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <figcaption class="lab-media-title">AmazingHand Shape-Adaptive Grasping</figcaption>
+        </figure>
+
+        <figure class="lab-media-card lab-media-portrait">
+          <video  autoplay muted loop playsinline>
+            <source src="video/demo-engineai.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <figcaption class="lab-media-title">EngineAI Robot Whole-Body Motion and Dance</figcaption>
+        </figure>
+
+        
+
+        <figure class="lab-media-card lab-media-portrait">
+          <video  autoplay muted loop playsinline>
+            <source src="video/demo-dbx.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <figcaption class="lab-media-title">SE(3)-Equivariant Grasping with Franka Robotics</figcaption>
+        </figure>
+
+        <figure class="lab-media-card lab-media-portrait">
+          <img src="video/demo-lejv.jpg" alt="Leju robot platform" />
+          <figcaption class="lab-media-title">Leju Robot Locomotion on Diverse Terrains and Materials</figcaption>
+        </figure>
+      </div>
+
+      <p>
+        Our lab is also equipped with several unmanned aerial vehicles,
+        data acquisition devices, sensors, and computing resources for collecting
+        multimodal robot data and validating algorithms in real-world environments.
+      </p>
+
+      <div class="lab-media-grid lab-media-grid-landscape">
+        <!-- 两个横屏视频 / 图片卡片：一行展示 -->
+        <figure class="lab-media-card lab-media-landscape">
+          <img src="video/demo-fly.gif" alt="CD-lab unmanned aerial vehicle demonstration" />
+          <figcaption class="lab-media-title">Cooperative Low-Altitude Multi-UAV Transport</figcaption>
+        </figure>
+
+        <figure class="lab-media-card lab-media-landscape">
+          <img src="video/demo-unitree.jpg" alt="Unitree robot platform" />
+          <figcaption class="lab-media-title">Low-Resource and End-to-End Trustworthy Quadruped Robot</figcaption>
+        </figure>
+      </div>
+
+      <!--
+      <p>
+        Students interested in these directions are welcome to contact me:
+        <a href="mailto:jixiaoqiang@cuhk.edu.cn">jixiaoqiang@cuhk.edu.cn</a>
+      </p>
+      -->
+    </section>
+
+    <!--
+    <section id="services">
+      <h2>Services</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="margin-top:0;">Conference Reviewer</h3>
+          <ul class="simple-list">
+            <li>CDC 2024, 2025</li>
+            <li>ICRA 2024, 2025</li>
+            <li>IROS 2024, 2025</li>
+            <li>ICML 2026</li>
+            <li>CoRL 2025</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0;">Journal Reviewer</h3>
+          <ul class="simple-list">
+            <li>TAC</li>
+            <li>Automatica</li>
+            <li>JFR</li>
+            <li>RA-L</li>
+            <li>T-Mech</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    -->
+
+    <!--
+    <section id="courses">
+      <h2>Courses</h2>
+      <ul class="simple-list">
+        <li>AIR 5023 - Math Fundamentals for Robotics（Fall 2025）</li>
+      </ul>
+    </section>
+    -->
+
+    <section id="books">
+      <h2>Books</h2>
+
+      <!--
+      <div class="book-item">
+        <img class="thumb" src="images/book_lim.jpg" alt="book cover" />
+        <div>
+          <h3 class="item-title">有限时间稳定逆</h3>
+          <div class="item-authors">冀晓强， 祝少钦， 徐扬生</div>
+          <div class="item-venue">电子工业出版社 / 2026</div>
+        </div>
+      </div>
+      -->
+
+      <div class="book-item">
+        <img class="thumb" src="images/book_hand.jpg" alt="book cover" />
+        <div>
+          <h3 class="item-title">具身智能灵巧手操作</h3>
+          <div class="item-authors">冀晓强， 陈毅东， 陈勇全， 刘少山</div>
+          <div class="item-venue">电子工业出版社 / 2026</div>
+          <!--
+          <div class="item-desc">
+            这里可以放第二本书或教材信息。没有书也可以删掉整个 Books 模块。
+          </div>
+          <div class="item-links">
+            <a href="#">[Open Access]</a>
+            <a href="#">[English Version]</a>
+          </div>
+          -->
+        </div>
+      </div>
+    </section>
+
+    <section id="papers">
+  <h2>Papers</h2>
+  <div class="paper-item">
+    <!-- <img class="thumb" src="images/paper-jfr-2025-field-robots.jpg" alt="Heterogeneous field robots collaboration thumbnail" /> -->
+    <img class="thumb" src="video/demo-jfrr.gif" alt="Heterogeneous field robots collaboration thumbnail" />
+    <div>
+      <h3 class="item-title">
+        Toward Universal Embodied Planning in Scalable Heterogeneous Field Robots Collaboration and Control
+      </h3>
+      <div class="item-authors">
+        Hanwen Wan, Yuhan Zhang, Junjie Wang, Donghao Wu, Mengkang Li, Xilun Chen, Yixuan Deng, Yuxuan Huang, Zhenglong Sun, Lin Zhang, Xiaoqiang Ji
+      </div>
+      <div class="item-venue">
+        <em>Journal of Field Robotics</em>, 42(5), 2025, pp. 2318–2336
+      </div>
+      <div class="item-desc">
+        This paper explores universal embodied planning for scalable collaboration and control among heterogeneous field robots.
+      </div>
+      <div class="item-links">
+        <a href="https://onlinelibrary.wiley.com/doi/am-pdf/10.1002/rob.22522" target="_blank" rel="noopener noreferrer">[Paper]</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="paper-item">
+    <!-- <img class="thumb" src="images/paper-iros-2025-embodiedagent.jpg" alt="EmbodiedAgent thumbnail" /> -->
+    <img class="thumb" src="video/demo-embodiedagent.gif" alt="EmbodiedAgent thumbnail" />
+    <div>
+      <h3 class="item-title">
+        EmbodiedAgent: A Scalable Hierarchical Approach to Overcome Practical Challenge in Multi-Robot Control
+      </h3>
+      <div class="item-authors">
+        Hanwen Wan, Yifei Chen, Yixuan Deng, Zeyu Wei, Dongrui Li, Zexin Lin, Donghao Wu, Jiu Cheng, Xiaoqiang Ji
+      </div>
+      <div class="item-venue">
+        <em>2025 IEEE/RSJ International Conference on Intelligent Robots and Systems</em>, pp. 12140–12146, IEEE, 2025
+      </div>
+      <div class="item-desc">
+        The paper presents a scalable hierarchical embodied-agent framework for practical multi-robot control.
+      </div>
+      <div class="item-links">
+        <a href="https://ieeexplore.ieee.org/abstract/document/11247740" target="_blank" rel="noopener noreferrer">[Paper]</a>
+        <a href="https://doi.org/10.1109/IROS60139.2025.11247740" target="_blank" rel="noopener noreferrer">[DOI]</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="paper-item">
+    <img class="thumb" src="video/demo-gente.gif" alt="GenTe terrain generation thumbnail" />
+    <div>
+      <h3 class="item-title">
+        GenTe: Generative Real-world Terrains for General Legged Robot Locomotion Control
+      </h3>
+      <div class="item-authors">
+        Hanwen Wan, Mengkang Li, Donghao Wu, Yebin Zhong, Yixuan Deng, Zhenglong Sun, Xiaoqiang Ji
+      </div>
+      <div class="item-venue">
+        <em>arXiv preprint arXiv:2504.09997</em>, 2025
+      </div>
+      <div class="item-desc">
+        This work proposes GenTe, a framework for generating physically realistic and adaptable terrains to train generalizable legged robot locomotion policies. It introduces an atomic terrain library, VLM-assisted terrain generation, realistic force modeling, and a benchmark of 100 generated terrains.
+      </div>
+      <div class="item-links">
+        <a href="https://arxiv.org/abs/2504.09997" target="_blank" rel="noopener noreferrer">[Paper]</a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="paper-item">
+    <img class="thumb" src="images/paper-ham-2026.jpg" alt="Byrnes-Isidori Normal Form for Hamiltonian Systems thumbnail" />
+    <div>
+      <h3 class="item-title">
+        Byrnes-Isidori Normal Form for a Class of Hamiltonian Systems: Stability of Internal Dynamics and Its Physical Implications
+      </h3>
+      <div class="item-authors">
+        Yuanke Dou, Haiyou Yu, Tianyu Shen, Xiaoqiang Ji
+      </div>
+      <!-- <div class="item-venue">
+        <em>Submitted to IEEE Control Systems Letters</em>, 2026
+      </div> -->
+      <div class="item-desc">
+        This paper studies Byrnes-Isidori normal-form decomposition for Hamiltonian systems, ISS stability analysis of internal dynamics, and control-theoretic interpretations of physical and chemical phenomena.
+      </div>
+      <div class="item-links">
+        <!-- <span class="tag">Submitted</span> -->
+      </div>
+    </div>
+  </div>
+
+
+  <div class="paper-item">
+    <img class="thumb" src="images/paper-learningbased-2025.jpg" alt="Learning-based transition control for VTOL UAVs thumbnail" />
+    <div>
+      <h3 class="item-title">
+        A Learning-based Control Methodology for Transitioning VTOL UAVs
+      </h3>
+      <div class="item-authors">
+        Zexin Lin, Yebin Zhong, Hanwen Wan, Jiu Cheng, Zhenglong Sun, Xiaoqiang Ji
+      </div>
+      <div class="item-venue">
+        <em>arXiv preprint arXiv:2512.03548</em>, 2025
+      </div>
+      <div class="item-desc">
+        This paper proposes an RL-driven coupled transition-control methodology for VTOL UAVs, treating cruise mode as a special case of hover and validating reduced vibration and accurate trajectory tracking in simulation and real-world environments.
+      </div>
+      <div class="item-links">
+        <a href="https://arxiv.org/pdf/2512.03548" target="_blank" rel="noopener noreferrer">[Paper]</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="paper-item">
+    <img class="thumb" src="images/paper-efficientcoordination-2026.jpg" alt="ANCHOR embodied-AI modular framework thumbnail" />
+    <div>
+      <h3 class="item-title">
+        Efficient Coordination with the System-Level Shared State: An Embodied-AI Native Modular Framework
+      </h3>
+      <div class="item-authors">
+        Yixuan Deng, Tianyu Wu, Donghao Wu, Zeyu Wei, Junjie Wang, Zhenglong Sun, Yixuan Tang, Xiaoqiang Ji
+      </div>
+      <div class="item-venue">
+        <em>arXiv preprint arXiv:2601.13945</em>, 2026
+      </div>
+      <div class="item-desc">
+        This work presents ANCHOR, a modular Embodied-AI framework that separates canonical shared-state records from a communication bus to support explicit coordination, controlled degradation, and self-healing recovery.
+      </div>
+      <div class="item-links">
+        <a href="https://arxiv.org/pdf/2601.13945" target="_blank" rel="noopener noreferrer">[Paper]</a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="paper-item">
+    <img class="thumb" src="images/paper-cint-valuevlm.jpg" alt="DIQ-H Benchmark thumbnail" />
+    <div>
+      <h3 class="item-title">
+        Value-Guided Iterative Refinement and the DIQ-H Benchmark for Evaluating VLM Robustness
+      </h3>
+      <div class="item-authors">
+        H. Wan, Z. Lin, Y. Deng, Xiaoqiang Ji, et al.
+      </div>
+      <div class="item-venue">
+        <em>The 8th Conference on Intelligent Networked Things</em> (CINT)
+      </div>
+      <div class="item-desc">
+        This work studies value-guided iterative refinement and proposes the DIQ-H benchmark for evaluating the robustness of vision-language models.
+      </div>
+      <div class="item-links">
+        <!-- <span class="tag">Under Review</span> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="paper-item">
+    <img class="thumb" src="images/paper-cint-fairbench.jpg" alt="FairVLM-Bench thumbnail" />
+    <div>
+      <h3 class="item-title">
+        FairVLM-Bench: A Multi-Dimensional Multimodal Benchmark for Evaluating Fairness in Vision-Language Models
+      </h3>
+      <div class="item-authors">
+        Y. Deng, H. Wan, T. Wu, Xiaoqiang Ji, et al.
+      </div>
+      <div class="item-venue">
+        <em>The 8th Conference on Intelligent Networked Things</em> (CINT)
+      </div>
+      <div class="item-desc">
+        This work introduces a multi-dimensional multimodal benchmark for evaluating fairness in vision-language models.
+      </div>
+      <div class="item-links">
+        <!-- <span class="tag">Under Review</span> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="paper-item">
+    <img class="thumb" src="images/paper-automatica-2025.jpg" alt="Lifted time stable inversion thumbnail" />
+    <div>
+      <h3 class="item-title">
+        Lifted Time Stable Inversion Based Feedforward Control for Linear Non-Minimum Phase Systems
+      </h3>
+      <div class="item-authors">
+        Xiaoqiang Ji*, Shaoqin Zhu, Yangsheng Xu, Richard W. Longman
+      </div>
+      <div class="item-venue">
+        <em>Automatica</em>, Vol. 171, January 2025, 111979
+      </div>
+      <div class="item-desc">
+        This paper develops a lifted-time stable inversion based feedforward control method for linear non-minimum phase systems.
+      </div>
+      <div class="item-links">
+        <a href="https://www.sciencedirect.com/science/article/pii/S0005109824004734" target="_blank" rel="noopener noreferrer">[Paper]</a>
+        <a href="https://doi.org/10.1016/j.automatica.2024.111979" target="_blank" rel="noopener noreferrer">[DOI]</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="paper-item">
+    <img class="thumb" src="images/paper-tac-2025-lptv.jpg" alt="Precision tracking for LPTV systems thumbnail" />
+    <div>
+      <h3 class="item-title">
+        Precision Tracking for Non-Minimum Phase LPTV Systems via a Lifted Time Stable Inversion
+      </h3>
+      <div class="item-authors">
+        Shaoqin Zhu, Xiaoqiang Ji*, Richard W. Longman, Yangsheng Xu
+      </div>
+      <div class="item-venue">
+        <em>IEEE Transactions on Automatic Control</em>, September 2025
+      </div>
+      <div class="item-desc">
+        Precision tracking control for non-minimum phase linear periodic time-varying systems using lifted-time stable inversion.
+      </div>
+      <div class="item-links">
+        <a href="https://ieeexplore.ieee.org/abstract/document/10921660" target="_blank" rel="noopener noreferrer">[Paper]</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="paper-item">
+    <img class="thumb" src="images/paper-FA-2025.jpg" alt="Fast Aesthetic Image Generation for Paper-Cutting Style thumbnail" />
+    <div>
+      <h3 class="item-title">
+        Fast Aesthetic Image Generation for Paper-Cutting Style
+      </h3>
+      <div class="item-authors">
+        Zeyu Wei, Hanwen Wan, Yuxuan Huang, Zhenglong Wu, Boxuan Zhu, Zhenglong Sun, Junjie Chen, Xiaoqiang Ji
+      </div>
+      <div class="item-venue">
+        <em>2025 IEEE International Conference on Real-time Computing and Robotics</em>, IEEE, 2025
+      </div>
+      <div class="item-desc">
+        This work proposes SAP, a Stable Diffusion-based workflow integrating ControlNet and a LoRA model trained for Chinese paper-cutting style transfer, improving machine-evaluated aesthetic scores while preserving image structure.
+      </div>
+      <div class="item-links">
+        <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11139511" target="_blank" rel="noopener noreferrer">[Paper]</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="paper-item">
+    <img class="thumb" src="images/paper-Q-manu.jpg" alt="FT-QuadLo fault-tolerant quadruped locomotion thumbnail" />
+    <div>
+      <h3 class="item-title">
+        FT-QuadLo: An Optimization-based Fault-Tolerant Control Framework for Quadruped Locomotion
+      </h3>
+      <div class="item-authors">
+        Yebin Zhong, Yuanke Dou, Shaoqin Zhu, Haiyou Yu, Hanwen Wan, Xiaoqiang Ji
+      </div>
+      <!-- <div class="item-venue">
+        <em>Manuscript</em>
+      </div> -->
+      <div class="item-desc">
+        This work presents a comprehensive optimization-based fault-tolerant control framework for robust and adaptive quadruped locomotion in the presence of external forces applied to the actuators.
+      </div>
+      <div class="item-links">
+        <!-- <span class="tag">Manuscript</span> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="paper-item">
+    <img class="thumb" src="images/paper-tac-2026-koopman.jpg" alt="Koopman-type inverse operator thumbnail" />
+    <div>
+      <h3 class="item-title">
+        Unified Feedforward Control Framework for Disturbed Non-Minimum Phase Systems: The Koopman-Type Inverse Operator Approach
+      </h3>
+      <div class="item-authors">
+        Xiaoqiang Ji*, Yuanke Dou, Shaoqin Zhu, Yangsheng Xu
+      </div>
+      <div class="item-venue">
+        <em>IEEE Transactions on Automatic Control</em>, February 2026
+      </div>
+      <div class="item-desc">
+        A unified feedforward control framework for disturbed non-minimum phase systems using a Koopman-type inverse operator.
+      </div>
+      <div class="item-links">
+        <a href="https://ieeexplore.ieee.org/abstract/document/11397161" target="_blank" rel="noopener noreferrer">[Paper]</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="paper-item">
+    <img class="thumb" src="images/paper-tcps-physics-aware.jpg" alt="Physics-aware embodied control thumbnail" />
+    <div>
+      <h3 class="item-title">
+        Towards Physics-Aware Embodied Control with Graph-Based Object-Centric Learning
+      </h3>
+      <div class="item-authors">
+        Hanwen Wan, Jiu Cheng, Yixuan Deng, Donghao Wu, Yifei Chen, Zexin Lin, Jialu Liu, Jiangfan Yu, Xiaoqiang Ji
+      </div>
+      <div class="item-venue">
+        <em>ACM Transactions on Cyber-Physical Systems</em>
+      </div>
+      <div class="item-desc">
+        This work investigates physics-aware embodied control through graph-based object-centric learning.
+      </div>
+      <div class="item-links">
+        <!-- <a href="#" target="_blank" rel="noopener noreferrer">[Paper]</a> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="paper-item">
+    <img class="thumb" src="images/paper-isf-2025-wheeled-biped.jpg" alt="Wheeled-biped robot stabilization thumbnail" />
+    <div>
+      <h3 class="item-title">
+        Stabilization of Underactuated Non-Minimum Phase Wheeled-Biped Robots: An IDA-PBC Approach
+      </h3>
+      <div class="item-authors">
+        Yuanke Dou, Yebin Zhong, Xiaoqiang Ji, et al.
+      </div>
+      <div class="item-venue">
+        <em>2025 Information Science Frontier Forum and the Academic Conference on Information Security and Intelligent Control</em>, IEEE, 2025
+      </div>
+      <div class="item-desc">
+        This paper studies stabilization of underactuated non-minimum phase wheeled-biped robots using an IDA-PBC approach.
+      </div>
+      <div class="item-links">
+        <a href="https://ieeexplore.ieee.org/abstract/document/11047429" target="_blank" rel="noopener noreferrer">[Paper]</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <footer class="footer">
+      <div>© 2025 Xiaoqiang Ji. Built with GitHub Pages.</div>
+      <div>Last updated: <span id="last-updated"></span></div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("last-updated").textContent =
+      new Date(document.lastModified).toLocaleDateString("zh-CN");
+  </script>
+</body>
+</html>
