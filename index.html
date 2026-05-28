@@ -237,7 +237,7 @@
 
     .industry-logo-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 18px;
   margin: 18px 0 8px;
   align-items: center;
@@ -500,7 +500,7 @@
     <section id="about">
       <h2>About Me</h2>
       <p>
-        Prof. JI Xiaoqiang received his PhD from Columbia University in the United States. He is currently an assistant professor and Ph.D. supervisor at the School of Science and Engineering, The Chinese University of Hong Kong, Shenzhen. He also serves as deputy director of the Guangdong Engineering Research Center for Embodied-AI Robotics, the expert committee member of Chine Simulation Federation Intelligent IOT Systems, and principal scientist of the ASEAN – China Artificial Intelligence Laboratory.
+        Prof. JI Xiaoqiang received his PhD from Columbia University in the United States. He is currently an assistant professor and Ph.D. supervisor at the School of Science and Engineering and the School of Artificial Intelligence, The Chinese University of Hong Kong, Shenzhen. He also serves as deputy director of the Guangdong Engineering Research Center for Embodied-AI Robotics, the expert committee member of Chine Simulation Federation Intelligent IOT Systems, and principal scientist of the ASEAN – China Artificial Intelligence Laboratory.
       </p>
       <!--
       <p>
@@ -563,6 +563,10 @@
     </div>
 
     <div class="industry-logo-card">
+      <img src="images/logo-sudokeji-new.jpg" alt="Sudo logo" />
+    </div>
+
+    <div class="industry-logo-card">
       <img src="images/logo-jindieshikong.jpg" alt="Jindie Shikong logo" />
     </div>
 
@@ -576,6 +580,10 @@
 
     <div class="industry-logo-card">
       <img src="images/logo-guolianzhengquan.png" alt="Guolian Zhengquan logo" />
+    </div>
+
+    <div class="industry-logo-card">
+      <img src="images/logo-youi-new.jpg" alt="You logo" />
     </div>
   </div>
 </section>
@@ -609,7 +617,7 @@
             <source src="video/demo-engineai.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
-          <figcaption class="lab-media-title">EngineAI Robot Whole-Body Motion and Dance</figcaption>
+          <figcaption class="lab-media-title">Humanoid Robot Whole-Body Motion and Dance</figcaption>
         </figure>
 
         
@@ -619,12 +627,12 @@
             <source src="video/demo-dbx.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
-          <figcaption class="lab-media-title">SE(3)-Equivariant Grasping with Franka Robotics</figcaption>
+          <figcaption class="lab-media-title">SE(3)-Equivariant Grasping with grippers</figcaption>
         </figure>
 
         <figure class="lab-media-card lab-media-portrait">
           <img src="video/demo-lejv.jpg" alt="Leju robot platform" />
-          <figcaption class="lab-media-title">Leju Robot Locomotion on Diverse Terrains and Materials</figcaption>
+          <figcaption class="lab-media-title">Humanoid Locomotion on Diverse Terrains and Materials</figcaption>
         </figure>
       </div>
 
@@ -727,6 +735,70 @@
 
     <section id="papers">
   <h2>Papers</h2>
+  <div class="paper-item">
+    <img class="thumb" src="images/paper-automatica-2025.jpg" alt="Lifted time stable inversion thumbnail" />
+    <div>
+      <h3 class="item-title">
+        Lifted Time Stable Inversion Based Feedforward Control for Linear Non-Minimum Phase Systems
+      </h3>
+      <div class="item-authors">
+        Xiaoqiang Ji*, Shaoqin Zhu, Yangsheng Xu, Richard W. Longman
+      </div>
+      <div class="item-venue">
+        <em>Automatica</em>, Vol. 171, January 2025, 111979
+      </div>
+      <div class="item-desc">
+        This paper develops a lifted-time stable inversion based feedforward control method for linear non-minimum phase systems.
+      </div>
+      <div class="item-links">
+        <a href="https://www.sciencedirect.com/science/article/pii/S0005109824004734" target="_blank" rel="noopener noreferrer">[Paper]</a>
+        <a href="https://doi.org/10.1016/j.automatica.2024.111979" target="_blank" rel="noopener noreferrer">[DOI]</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="paper-item">
+    <img class="thumb" src="images/paper-tac-2026-koopman.jpg" alt="Koopman-type inverse operator thumbnail" />
+    <div>
+      <h3 class="item-title">
+        Unified Feedforward Control Framework for Disturbed Non-Minimum Phase Systems: The Koopman-Type Inverse Operator Approach
+      </h3>
+      <div class="item-authors">
+        Xiaoqiang Ji*, Yuanke Dou, Shaoqin Zhu, Yangsheng Xu
+      </div>
+      <div class="item-venue">
+        <em>IEEE Transactions on Automatic Control</em>, February 2026
+      </div>
+      <div class="item-desc">
+        A unified feedforward control framework for disturbed non-minimum phase systems using a Koopman-type inverse operator.
+      </div>
+      <div class="item-links">
+        <a href="https://ieeexplore.ieee.org/abstract/document/11397161" target="_blank" rel="noopener noreferrer">[Paper]</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="paper-item">
+    <img class="thumb" src="images/paper-tac-2025-lptv.jpg" alt="Precision tracking for LPTV systems thumbnail" />
+    <div>
+      <h3 class="item-title">
+        Precision Tracking for Non-Minimum Phase LPTV Systems via a Lifted Time Stable Inversion
+      </h3>
+      <div class="item-authors">
+        Shaoqin Zhu, Xiaoqiang Ji*, Richard W. Longman, Yangsheng Xu
+      </div>
+      <div class="item-venue">
+        <em>IEEE Transactions on Automatic Control</em>, September 2025
+      </div>
+      <div class="item-desc">
+        Precision tracking control for non-minimum phase linear periodic time-varying systems using lifted-time stable inversion.
+      </div>
+      <div class="item-links">
+        <a href="https://ieeexplore.ieee.org/abstract/document/10921660" target="_blank" rel="noopener noreferrer">[Paper]</a>
+      </div>
+    </div>
+  </div>
+
   <div class="paper-item">
     <!-- <img class="thumb" src="images/paper-jfr-2025-field-robots.jpg" alt="Heterogeneous field robots collaboration thumbnail" /> -->
     <img class="thumb" src="video/demo-jfrr.gif" alt="Heterogeneous field robots collaboration thumbnail" />
@@ -901,48 +973,7 @@
     </div>
   </div>
 
-  <div class="paper-item">
-    <img class="thumb" src="images/paper-automatica-2025.jpg" alt="Lifted time stable inversion thumbnail" />
-    <div>
-      <h3 class="item-title">
-        Lifted Time Stable Inversion Based Feedforward Control for Linear Non-Minimum Phase Systems
-      </h3>
-      <div class="item-authors">
-        Xiaoqiang Ji*, Shaoqin Zhu, Yangsheng Xu, Richard W. Longman
-      </div>
-      <div class="item-venue">
-        <em>Automatica</em>, Vol. 171, January 2025, 111979
-      </div>
-      <div class="item-desc">
-        This paper develops a lifted-time stable inversion based feedforward control method for linear non-minimum phase systems.
-      </div>
-      <div class="item-links">
-        <a href="https://www.sciencedirect.com/science/article/pii/S0005109824004734" target="_blank" rel="noopener noreferrer">[Paper]</a>
-        <a href="https://doi.org/10.1016/j.automatica.2024.111979" target="_blank" rel="noopener noreferrer">[DOI]</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="paper-item">
-    <img class="thumb" src="images/paper-tac-2025-lptv.jpg" alt="Precision tracking for LPTV systems thumbnail" />
-    <div>
-      <h3 class="item-title">
-        Precision Tracking for Non-Minimum Phase LPTV Systems via a Lifted Time Stable Inversion
-      </h3>
-      <div class="item-authors">
-        Shaoqin Zhu, Xiaoqiang Ji*, Richard W. Longman, Yangsheng Xu
-      </div>
-      <div class="item-venue">
-        <em>IEEE Transactions on Automatic Control</em>, September 2025
-      </div>
-      <div class="item-desc">
-        Precision tracking control for non-minimum phase linear periodic time-varying systems using lifted-time stable inversion.
-      </div>
-      <div class="item-links">
-        <a href="https://ieeexplore.ieee.org/abstract/document/10921660" target="_blank" rel="noopener noreferrer">[Paper]</a>
-      </div>
-    </div>
-  </div>
+  
 
   <div class="paper-item">
     <img class="thumb" src="images/paper-FA-2025.jpg" alt="Fast Aesthetic Image Generation for Paper-Cutting Style thumbnail" />
@@ -982,27 +1013,6 @@
       </div>
       <div class="item-links">
         <!-- <span class="tag">Manuscript</span> -->
-      </div>
-    </div>
-  </div>
-
-  <div class="paper-item">
-    <img class="thumb" src="images/paper-tac-2026-koopman.jpg" alt="Koopman-type inverse operator thumbnail" />
-    <div>
-      <h3 class="item-title">
-        Unified Feedforward Control Framework for Disturbed Non-Minimum Phase Systems: The Koopman-Type Inverse Operator Approach
-      </h3>
-      <div class="item-authors">
-        Xiaoqiang Ji*, Yuanke Dou, Shaoqin Zhu, Yangsheng Xu
-      </div>
-      <div class="item-venue">
-        <em>IEEE Transactions on Automatic Control</em>, February 2026
-      </div>
-      <div class="item-desc">
-        A unified feedforward control framework for disturbed non-minimum phase systems using a Koopman-type inverse operator.
-      </div>
-      <div class="item-links">
-        <a href="https://ieeexplore.ieee.org/abstract/document/11397161" target="_blank" rel="noopener noreferrer">[Paper]</a>
       </div>
     </div>
   </div>
