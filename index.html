@@ -227,6 +227,13 @@
       object-fit: cover;
     }
 
+    /* AI infrastructure / hardware cluster cards: taller than the other landscape cards */
+    .lab-media-tall video,
+    .lab-media-tall img {
+      height: 300px;
+      object-fit: cover;
+    }
+
     /* 竖屏视频：卡片内调小 */
     .lab-media-portrait video,
     .lab-media-portrait img {
@@ -413,6 +420,11 @@
         height: 190px;
       }
 
+      .lab-media-tall video,
+      .lab-media-tall img {
+        height: 260px;
+      }
+
       .lab-media-portrait video,
       .lab-media-portrait img {
         height: 280px;
@@ -493,6 +505,7 @@
           <span class="tag">Embodied Control</span>
           <span class="tag">Control theory</span>
           <span class="tag">Robot Control</span>
+          <span class="tag">AI Systems and Infrastructure</span>
         </p>
       </div>
     </section>
@@ -652,6 +665,24 @@
         <figure class="lab-media-card lab-media-landscape">
           <img src="video/demo-unitree.jpg" alt="Unitree robot platform" />
           <figcaption class="lab-media-title">Low-Resource and End-to-End Trustworthy Quadruped Robot</figcaption>
+        </figure>
+      </div>
+
+      <p>
+        There is a self-built AI infrastructure and a dedicated hardware cluster in our lab,
+        providing scalable computing support for model training, simulation, data processing,
+        and large-scale embodied intelligence experiments.
+      </p>
+
+      <div class="lab-media-grid lab-media-grid-landscape">
+        <figure class="lab-media-card lab-media-landscape lab-media-tall">
+          <img src="images/material-AI_structure.png" alt="Self-built AI infrastructure architecture" />
+          <figcaption class="lab-media-title">Self-Built AI Infrastructure</figcaption>
+        </figure>
+
+        <figure class="lab-media-card lab-media-landscape lab-media-tall">
+          <img src="images/material-hwrgroup.jpg" alt="Laboratory hardware cluster" />
+          <figcaption class="lab-media-title">Self Built Computing Cluster, AI Cluster, Distributed Storage</figcaption>
         </figure>
       </div>
 
