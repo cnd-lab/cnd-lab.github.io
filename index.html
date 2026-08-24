@@ -241,6 +241,19 @@
       object-fit: cover;
     }
 
+    .lab-video-small {
+        height: 260px !important;
+        object-fit: contain !important;
+        
+        background: #f3f4f6;
+      }
+
+    .lab-video-fill {
+      width: 100% !important;
+      height: 260px !important;
+      object-fit: fill !important;
+    }
+
 
     .industry-logo-grid {
   display: grid;
@@ -430,6 +443,8 @@
         height: 280px;
       }
 
+      
+
       .lab-media-card {
         padding: 8px;
       }
@@ -502,9 +517,9 @@
 
         <p style="margin-top:16px;">
           Research area:
-          <span class="tag">Embodied Control</span>
-          <span class="tag">Control theory</span>
-          <span class="tag">Robot Control</span>
+          <span class="tag">Intelligent Control Systems</span>
+          <span class="tag">Embodied AI and Physical AI</span>
+          <span class="tag">Control Theory and AI</span>
           <span class="tag">AI Systems and Infrastructure</span>
         </p>
       </div>
@@ -686,6 +701,34 @@
         </figure>
       </div>
 
+
+      <p>
+        Our lab is currently exploring the deployment of edge Large Language Models (LLMs) on UAV platforms. Our research focuses on efficient onboard processing of low-altitude communication messages, task instruction understanding, and autonomous scheduling and decision-making, with particular emphasis on <b>autoregressive</b> and <b>diffusion-based</b> LLMs under resource-constrained edge environments.
+      </p>
+
+      <div class="lab-media-grid lab-media-grid-landscape">
+
+        <figure class="lab-media-card lab-media-landscape lab-media-tall">
+          <video class="lab-video-small" autoplay muted loop playsinline>
+            <source src="video/demo-fly-1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <figcaption class="lab-media-title">
+            Autoregressive vs. Diffusion Onboard Edge LLMs for High-Concurrency Low-Altitude Message Processing
+          </figcaption>
+        </figure>
+
+        <figure class="lab-media-card lab-media-landscape lab-media-tall">
+          <video class="lab-video-fill" autoplay muted loop playsinline>
+            <source src="video/demo-fly-2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <figcaption class="lab-media-title">
+            Autoregressive vs. Diffusion Onboard Edge LLMs for Composite Task Understanding and Spatially Accurate Execution
+          </figcaption>
+        </figure>
+
+      </div>
       <!--
       <p>
         Students interested in these directions are welcome to contact me:
